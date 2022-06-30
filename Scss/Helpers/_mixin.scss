@@ -1,0 +1,101 @@
+@mixin  styleText($fs,$fw,$color) {
+    font-size: $fs ;
+    font-weight: $fw;
+    color: $color;
+}
+@mixin  styleTextPadding($fs,$fw,$color,$background-color,$pading-x,$pading-y ,$marign,$border-radius,$border) {
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+    background-color: $background-color;
+    padding: $pading-x $pading-y;
+    margin: $marign;
+    border-radius: $border-radius;
+    border: $border;
+}
+@mixin afterHeader($background-color) {
+    content: " ";
+    position: absolute;
+    z-index: 5;
+    bottom: -25px;
+    margin-left: -4px;
+    left: 50%;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: $background-color;
+}
+@mixin responsiveMin($screen) {   
+    @if(map-has-key($map:$breakpoints , $key:$screen )){      
+        $value: map-get($map:$breakpoints , $key:$screen );       
+        @media screen and (min-width:$value){
+            @content;
+        }
+    }
+    @else{       
+        @warn "màn hình chưa khai báo";
+    }
+}
+@mixin responsiveMax($screen) {   
+    @if(map-has-key($map:$breakpoints , $key:$screen )){      
+        $value: map-get($map:$breakpoints , $key:$screen );       
+        @media screen and (max-width:$value){
+            @content;
+        }
+    }
+    @else{       
+        @warn "màn hình chưa khai báo";
+    }
+
+}
+@mixin position($z-index) {
+    position: relative;
+    z-index: $z-index;
+} 
+@mixin  reponsiveWitdh {
+    width: 1200px;
+    margin: auto!important;
+    max-width: calc(100% - 60px)
+}
+
+@mixin hoverButton {
+    background-color: $color-white-3;
+    color: $color-pink-2;
+    border: $bd-4;
+    transition: all 300ms ease;
+};
+@mixin boxShadow {
+    box-shadow: 0 12px 20px -5px #3b3434;
+}
+@mixin contact {
+    .right-content-text {
+        a {
+          @include styleTextPadding(
+            $fs-2,
+            $fw-3,
+            $color-white-3,
+            $background-color-pink,
+            $pd-2,
+            $pd-3,
+            $mg-1,
+            $bd-1,
+            $bd-3,    
+          );
+          text-decoration: none;
+          &:hover{
+            @include hoverButton;
+          }
+          i {
+            padding-right: $pd-1;
+          }
+        }
+      }
+      .right-content-item {
+        padding-left: $pd-1;
+        padding-right: $pd-0;
+        @include styleText($fs-2, $fw-1, $color-dark-2);
+        &:hover {
+          color: $color-pink-2 ;
+        }
+      }
+}

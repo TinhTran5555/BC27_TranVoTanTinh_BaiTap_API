@@ -1,0 +1,18 @@
+//Helpers
+@import "../Scss/Helpers/variables";
+@import "../Scss/Helpers/mixin";
+
+//Vendors
+
+//Base
+@import "../Scss/Base/reset";
+
+//Components
+@import "../Scss/Components/title";
+//Layouts
+@import "../Scss/Layouts/sidebar";
+@import "../Scss/Layouts/header";
+@import "../Scss/Layouts/carousel";
+@import "../Scss/Layouts/product";
+@import "../Scss/Layouts/find";
+@import "../Scss/Layouts/footer";

@@ -1,0 +1,105 @@
+.find {
+  padding: $pd-8 0;
+  position: relative;
+
+  .find-bot {
+    position: absolute;
+    bottom: 0;
+
+    img {
+      width: 100%;
+    }
+
+  }
+
+  .find-content {
+    @include position (100);
+    @include reponsiveWitdh;
+    width: 1000px;
+
+    .row {
+      justify-content: space-between;
+
+      img {
+        width: 115%;
+      }
+
+      .find-right {
+        height: 500px;
+        background-color: $color-white-3;
+        border-radius: $bdr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        @include boxShadow;
+
+        .form-group {
+          position: relative;
+
+          label {
+            display: inline;
+          }
+
+          .icon {
+            position: absolute;
+            top: $ps-1;
+            left: $ps-1;
+          }
+
+          textarea {
+            padding-left: $pd--5;
+            border-radius: $bdr;
+          }
+
+          input,
+          select {
+            @extend textarea;
+            height: $hg-4;
+          }
+        }
+
+        button {
+          @include styleTextPadding(
+            $fs-2,
+            $fw-3,
+            $color-white-3,
+            $background-color-pink,
+            $pd-2,
+            $pd-7,
+            $mg-1,
+            $bd-1,
+            $bd-3,
+          );
+          &:hover {
+            @include hoverButton;
+          }
+          margin-top: $mg-6;
+        }
+      }
+    }
+
+    h2 {
+      @include styleText($fs-10, $fw-4, $color-dark-2);
+      margin: $mg-7 0 $mg-8 0;
+    }
+  }
+}
+
+
+@include responsiveMax("large-down") {
+
+  .find .find-content .row {
+    .find-left {
+      margin-bottom: 50px;
+
+      img {
+        width: 85% !important;
+      }
+    }
+
+    .find-right {
+      height: 550px;
+    }
+  }
+}

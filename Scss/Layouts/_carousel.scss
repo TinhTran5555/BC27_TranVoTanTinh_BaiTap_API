@@ -1,0 +1,60 @@
+.carousel {
+  position: relative;
+  z-index: 10;
+  padding-bottom: $pd-6;
+  .carousel-top img,
+  .carousel-bot img {
+    width: 100%;
+  }
+  .carousel-top {
+    position: absolute;
+    top: -100px;
+  }
+  .carousel-mid {
+    height: auto;
+
+    .carousel-content {
+      height: $hg-2;
+      margin: 0 $mg-5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .carousel-content-item {
+        @include position(50);
+        width: 50%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .carousel-bot {
+    position: absolute;
+    bottom: 0;
+  }
+}
+@include responsiveMax("large-down") {
+  .carousel {
+    margin: $mg-4 0 0 0;
+    .carousel-mid {
+      height: $hg-3;
+      .carousel-content {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        .carousel-content-item {
+          width: 100%;
+          img {
+            width: 580px;
+          }
+        }
+      }
+    }
+  }
+}
+@include responsiveMin("extra-large-plus") {
+  .carousel-content {
+    @include reponsiveWitdh;
+  }
+}
+

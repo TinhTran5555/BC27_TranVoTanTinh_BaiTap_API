@@ -1,0 +1,27 @@
+.sub-title {
+    @include styleText ($fs-5,$fw-2,$color-pink-2)
+}
+.main-title {
+    @include styleText ($fs-6,$fw-3,$color-dark-2)
+}
+.nation {
+    margin-top: $mg-6;
+    @include styleText ($fs-0,$fw-3,$color-pink-2)
+}
+.name {
+    @include styleText ($fs-9,$fw-4,$color-dark-4)
+}
+.status {
+    @include styleText ($fs-3,$fw-1,$color-dark-3);
+    line-height: 27px;
+    margin-top: $mg-2;
+    
+}
+@include responsiveMax("large-down") {
+    .sub-title {
+        @include styleText ($fs-3,$fw-2,$color-pink-2)
+    }
+    .main-title {
+        @include styleText ($fs-4,$fw-3,$color-dark-2)
+    }
+}

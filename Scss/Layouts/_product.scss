@@ -1,0 +1,51 @@
+.product {
+  display: block;
+  background-color: $color-blue-5;
+  padding-top: $pd-5;
+  position: relative;
+  .product-bot {
+    position: absolute;
+    bottom: 0;
+    img {
+      width: 100%;
+    }
+  }
+  .product-content {
+    position: relative;
+    .container {
+      @include position(100);
+      .product-item {
+        text-align: center;
+
+        padding: $pd-2;
+        &>div:hover {
+          @include boxShadow;
+          overflow: hidden;
+        }
+        .item-top {
+          border-radius: $bdr $bdr 0 0;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          height: 170px;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+        .item-bot {
+          padding: $pd-1 $pd-1 $pd--5 $pd-1;
+          background-color: $color-white-3;
+          border-radius: 0 0 $bdr $bdr;
+        }
+      }
+      
+      
+      
+    }
+  }
+}
+@include responsiveMin("extra-large-plus") {
+  .product-content {
+    @include reponsiveWitdh;
+  }
+}
