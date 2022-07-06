@@ -282,10 +282,12 @@ function hadleAction(event) {
   }
 }
 // Hàm search
+// + Bằng phím enter 
 document.getElementById("search").addEventListener("keypress", handleSearch);
 function handleSearch(event) {
   console.log(event);
   if (event.key !== "Enter") return;
+
   var value = event.target.value;
   apiGetUsers(value).then(function (result) {
     var users = result.data;
@@ -311,8 +313,6 @@ function handleSearch(event) {
 // + Bằng icon search 
 document.getElementById("buttonSearch").addEventListener("click", handleSearchButton);
 function handleSearchButton() {
-
-
   // DOM tới input lấy giá trị để tìm kiếm
   var value = document.getElementById("search").value;
   apiGetUsers(value).then(function (result) {
@@ -333,9 +333,9 @@ function handleSearchButton() {
     }
     // Gọi hàm display để hiển thị danh sách sản phẩm ra giao diện
     display(users);
-    console.log(users);
   });
 }
+
 function validation() {
 
   var taiKhoan = document.getElementById("TaiKhoan").value;
